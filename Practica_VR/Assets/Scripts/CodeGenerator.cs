@@ -6,6 +6,7 @@ using TMPro;
 public class CodeGenerator : MonoBehaviour
 {
     [SerializeField] Transform targetPointParent;
+    public string code = "";
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class CodeGenerator : MonoBehaviour
     {
         TextMeshProUGUI codeText = GetComponentInChildren<TextMeshProUGUI>();
 
-        string code = "";
+        
         List<char> aux = new List<char> { 'A', 'B', 'C', 'D' };
 
         int codeLength = aux.Count;

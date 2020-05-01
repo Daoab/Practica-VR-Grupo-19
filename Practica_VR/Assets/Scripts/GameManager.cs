@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     Transform[] targetPoints;
 
     [SerializeField] GameObject canPrefab;
+    [SerializeField] GameObject googlesPrefab;
     [SerializeField] float force = 100f;
     [SerializeField] float torque = 5f;
 
@@ -21,13 +22,22 @@ public class GameManager : MonoBehaviour
         rb.AddForce(new Vector3(Random.Range(-force, force), Random.Range(-force, force), Random.Range(-force, force)));
         rb.AddTorque(new Vector3(Random.Range(-torque, torque), Random.Range(-torque, torque), Random.Range(-torque, torque)));
 
+        int googleIndex = Random.Range(1, targetPoints.Length);
+        googlesPrefab.transform.position = targetPoints[googleIndex].transform.position;
+        Rigidbody googlesRb = googlesPrefab.GetComponent<Rigidbody>();
+        googlesRb.AddForce(new Vector3(Random.Range(-force, force), Random.Range(-force, force), Random.Range(-force, force)));
+        googlesRb.AddTorque(new Vector3(Random.Range(-torque, torque), Random.Range(-torque, torque), Random.Range(-torque, torque)));
+
         for (int i = 1; i < targetPoints.Length; i++)
         {
-            rb = GameObject.Instantiate(canPrefab, targetPoints[i].position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.gameObject.transform.parent = transform;
+            if (i != googleIndex)
+            {
+                rb = GameObject.Instantiate(canPrefab, targetPoints[i].position, Quaternion.identity).GetComponent<Rigidbody>();
+                rb.gameObject.transform.parent = transform;
 
-            rb.AddForce(new Vector3(Random.Range(-force, force), Random.Range(-force, force), Random.Range(-force, force)));
-            rb.AddTorque(new Vector3(Random.Range(-torque, torque), Random.Range(-torque, torque), Random.Range(-torque, torque)));
+                rb.AddForce(new Vector3(Random.Range(-force, force), Random.Range(-force, force), Random.Range(-force, force)));
+                rb.AddTorque(new Vector3(Random.Range(-torque, torque), Random.Range(-torque, torque), Random.Range(-torque, torque)));
+            }
         }
     }
 }
