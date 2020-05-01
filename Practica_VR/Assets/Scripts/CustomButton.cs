@@ -29,12 +29,9 @@ public class CustomButton : MonoBehaviour
 
         if ((button.transform.position - buttonStartPos).magnitude > failsafeDistance)
         {
-            Debug.Log("Button");
             button.transform.position = buttonStartPos;
             button.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-           
-           
     }
 
     private void OnTriggerEnter(Collider other)

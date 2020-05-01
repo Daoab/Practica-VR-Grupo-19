@@ -23,8 +23,8 @@ public class ArcadeManager : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
-    float highScore = 2f;
-    public float score = 0f;
+    int highScore = 2;
+    public int score = 0;
 
     [Header("Menu UI")]
     [SerializeField] TextMeshProUGUI titleText;
@@ -44,14 +44,11 @@ public class ArcadeManager : MonoBehaviour
         juanOrigin = juan.transform.position;
         InitializePipes();
 
-        //LEER HIGHSCORE DE FICHERO
-
         ShowMenu();
     }
 
     void Update()
     {
-        // LIMITE INFERIOR DEL MUNDO
         if (gameRunning)
         {
             if (juan.position.y < downLimit.position.y)
@@ -119,9 +116,6 @@ public class ArcadeManager : MonoBehaviour
         juanRB.constraints = RigidbodyConstraints2D.FreezeAll;
 
         foreach (Pipe pipe in pipes) pipe.Freeze();
-
-        
-        //ESCRIBIR FICHERO
     }
 
     private void UpdateScore()

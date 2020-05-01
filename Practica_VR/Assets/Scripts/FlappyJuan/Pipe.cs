@@ -62,7 +62,6 @@ public class Pipe : MonoBehaviour
         canAddScore = true;
         float gapHeight = Random.Range(minGapHeight, maxGapHeight);
         float gapPosition = downLimit.position.y + Random.Range(gapHeight*0.5f, heightRange - gapHeight*0.5f);
-        Debug.Log("heightRange: " + heightRange + ", gapHeight: " + gapHeight + ", gapPosition: " + gapPosition);
         pipeDown.position = new Vector3(pipeDown.position.x, gapPosition - gapHeight/2f,pipeDown.position.z);
         pipeUp.position = new Vector3(pipeUp.position.x, gapPosition + gapHeight / 2f, pipeUp.position.z);
     }
