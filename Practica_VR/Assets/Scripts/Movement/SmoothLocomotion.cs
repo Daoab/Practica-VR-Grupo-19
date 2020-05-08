@@ -30,9 +30,12 @@ public class SmoothLocomotion : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 forceVector = new Vector3(xValue, 0f, yValue) * forceMultiplier;
+        
         Vector3 direction = ovrCameraTransform.forward.normalized * forceVector.z 
             + ovrCameraTransform.right.normalized * forceVector.x;
 
+        direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized * direction.magnitude;
+        
         rb.AddForce(direction.x, 0f, direction.z);
     }
 }

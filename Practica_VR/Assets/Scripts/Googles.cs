@@ -19,6 +19,9 @@ public class Googles : MonoBehaviour
     void Update()
     {
         if (grabbable.isGrabbed && (transform.position - juanCamera.transform.position).magnitude < distanceToHead)
+        {
+            GetComponent<OVRGrabbable>().grabbedBy.GrabEndEvent();
             onGooglesPicked.Invoke();
+        }
     }
 }
