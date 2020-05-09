@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matBlanco
-  m_Shader: {fileID: 4800000, guid: f4e39110e29c58747b867b85396cbcf9, type: 3}
+  m_Shader: {fileID: 4800000, guid: 677cd528d3bbb934fa7f3ca4fb2446f6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -83,6 +83,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AmbientColor: {r: 0.4, g: 0.4, b: 0.6, a: 1}
-    - _Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    - _Color: {r: 0.11091179, g: 0, b: 0.16981131, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
