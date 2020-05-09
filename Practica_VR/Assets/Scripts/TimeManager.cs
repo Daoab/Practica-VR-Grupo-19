@@ -14,8 +14,7 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField] TimedEvent[] timedEvents;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartCountdown()
     {
         StartCoroutine("CallTimedEvents");
     }

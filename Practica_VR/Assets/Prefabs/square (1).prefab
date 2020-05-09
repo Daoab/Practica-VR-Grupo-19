@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9218585053034696604}
   - component: {fileID: 195335921939576234}
   - component: {fileID: 5875352082837342547}
-  - component: {fileID: 4221080724368942212}
   - component: {fileID: 2658795597743179334}
+  - component: {fileID: 9009217035458289358}
   m_Layer: 0
   m_Name: square (1)
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4221080724368942212
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5311335622236781967}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34665614, y: 0.3466562, z: 0.34665617}
-  m_Center: {x: -0.17127308, y: 0, z: 0.034484744}
 --- !u!114 &2658795597743179334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +98,16 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!65 &9009217035458289358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311335622236781967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26962146, y: 0.26962152, z: 0.26962146}
+  m_Center: {x: -0.1332124, y: -9.925097e-10, z: 0.026821464}

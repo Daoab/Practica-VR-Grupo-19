@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AllowGrab : MonoBehaviour
 {
-    float maxDistance = 0.1f;
+    [SerializeField] float maxDistance = 0.5f;
     [SerializeField] Transform hand;
     OVRGrabber grabber;
 
