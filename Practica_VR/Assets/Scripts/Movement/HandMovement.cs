@@ -77,7 +77,6 @@ public class HandMovement : MonoBehaviour
                 distanceToTrigger = float.MaxValue;
             }
         }
-        Debug.Log(triggerObj);
 
         if (distanceToTrigger < collider.radius || (otherHandGrabber.grabbedObject != null && otherHandGrabber.grabbedObject.tag == "TouchScreen") || (rightHand && Input.GetAxisRaw(pointButton) > 0f))
             anim.SetBool("point", true);

@@ -378,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportDst: {fileID: 1259340140}
   maxDistance: 5
-  rightHand: {fileID: 8497136522189129857}
+  rightHand: {fileID: 8497136522114327153}
 --- !u!114 &8497136521877779531
 MonoBehaviour:
   m_ObjectHideFlags: 0
