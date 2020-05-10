@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class PlayRandomSoundFromPool : MonoBehaviour
 {
-    AudioSource audioSource;
+    [SerializeField] GameObject audioSourceParent;
+    AudioSource[] audioSources;
     [SerializeField] AudioClip[] audios;
+
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.loop = false;
+        audioSources = audioSourceParent.GetComponentsInChildren<AudioSource>();
     }
 
-    public void PlayRandomSound()
+    public void PlayRandomSound(bool overrideSound)
     {
-        if (!audioSource.isPlaying)
+        if (!audioSources[0].isPlaying || overrideSound)
         {
             int randomIndex = Random.Range(0, audios.Length);
-            audioSource.clip = audios[randomIndex];
-            audioSource.Play();
+            foreach(AudioSource src in audioSources)
+            {
+                src.clip = audios[randomIndex];
+                src.Play();
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        PlayRandomSound();
+        PlayRandomSound(false);
     }
 }

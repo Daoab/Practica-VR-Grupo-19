@@ -39,7 +39,7 @@ Shader "Custom/ToonSurfaceVertex" {
 			float specularIntensity = pow(NdotH, _Glossiness * _Glossiness);
 			float specular = smoothstep(0.005, 0.008, specularIntensity) * lightIntensity;
 
-			lightIntensity += specular * _UseSpecular;
+			lightIntensity += specular * _UseSpecular + 0.1;
 
 			//combine the color
 			float4 col;

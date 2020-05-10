@@ -13,6 +13,10 @@ public class Computer : MonoBehaviour
     [SerializeField] UnityEvent onCodeComplete;
     [SerializeField] UnityEvent onCodeFail;
 
+    [SerializeField] Material redLightMat;
+    [SerializeField] Color codeDefaultColor;
+    [SerializeField] Color codeSuccessColor;
+
     string localCode = "";
     int localCodeIndex = 0;
     string defaultLocalCode = "";
@@ -21,6 +25,13 @@ public class Computer : MonoBehaviour
     {
         for (int i = 0; i < codeGenerator.code.Length; i++) defaultLocalCode += "_";
         codeText.text = defaultLocalCode;
+
+        redLightMat.color = codeDefaultColor;
+    }
+
+    public void ChangeLights()
+    {
+        redLightMat.color = codeSuccessColor;
     }
 
     public void InsertCode(string c)

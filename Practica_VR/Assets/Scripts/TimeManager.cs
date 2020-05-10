@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
@@ -12,7 +13,21 @@ public class TimeManager : MonoBehaviour
         public UnityEvent events;
     }
 
+    bool gameVictory = false;
+
+    [SerializeField] UnityEvent onVictory;
     [SerializeField] TimedEvent[] timedEvents;
+
+    public void WinGame()
+    {
+        gameVictory = true;
+        onVictory.Invoke();
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     public void StartCountdown()
     {
@@ -21,10 +36,13 @@ public class TimeManager : MonoBehaviour
 
     IEnumerator CallTimedEvents()
     {
-        for(int i = 0; i < timedEvents.Length; i++)
+        int i = 0;
+        while (i < timedEvents.Length && !gameVictory)
         {
             yield return new WaitForSeconds(timedEvents[i].time);
-            timedEvents[i].events.Invoke();
+            Debug.Log("NextTimeEvent");
+            if(!gameVictory) timedEvents[i].events.Invoke();
+            i++;
         }
     }
 }

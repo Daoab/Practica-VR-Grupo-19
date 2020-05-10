@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ArcadeManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class ArcadeManager : MonoBehaviour
     [SerializeField] RawImage runningBackground;
     [SerializeField] RawImage menuBackground;
 
+    [Header("Events")]
+    [SerializeField] UnityEvent scoreUp;
 
     //GAME STATE
     bool gameRunning = false;
@@ -126,6 +129,7 @@ public class ArcadeManager : MonoBehaviour
             {
                 score++;
                 pipe.canAddScore = false;
+                scoreUp.Invoke();
             }
         }
         scoreText.text = score.ToString();

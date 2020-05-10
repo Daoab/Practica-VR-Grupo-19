@@ -14,7 +14,7 @@ public class Teleportation : MonoBehaviour
     void Start()
     {
         teleportDst.gameObject.SetActive(false);
-        layerMask = LayerMask.GetMask("Floor");
+        layerMask = LayerMask.NameToLayer("Floor");
     }
 
     // Update is called once per frame
@@ -24,10 +24,17 @@ public class Teleportation : MonoBehaviour
 
         if(button > 0f)
         {
-            if(Physics.Raycast(rightHand.position, rightHand.forward, out hit, maxDistance,  layerMask))
+            if (Physics.Raycast(rightHand.position, rightHand.forward, out hit, maxDistance))
             {
-                teleportDst.gameObject.SetActive(true);
-                teleportDst.transform.position = hit.point;
+                if (hit.collider.gameObject.layer == layerMask)
+                {
+                    teleportDst.gameObject.SetActive(true);
+                    teleportDst.transform.position = hit.point;
+                }
+                else
+                {
+                    teleportDst.gameObject.SetActive(false);
+                }
             }
             else
             {
