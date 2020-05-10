@@ -15,11 +15,16 @@ public class PlayRandomSoundFromPool : MonoBehaviour
 
     public void PlayRandomSound()
     {
-        int randomIndex = Random.Range(0, audios.Length);
-
-        audioSource.clip = audios[randomIndex];
-
         if (!audioSource.isPlaying)
+        {
+            int randomIndex = Random.Range(0, audios.Length);
+            audioSource.clip = audios[randomIndex];
             audioSource.Play();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayRandomSound();
     }
 }

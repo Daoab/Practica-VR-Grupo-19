@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2868963370908529522
 Transform:
@@ -90,7 +90,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264318682663403873}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 069fdab400e30344cbb3f60224ab44aa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -103,12 +103,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264318682663403873}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 069fdab400e30344cbb3f60224ab44aa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1202657, y: 1.0334929, z: 0.53}
-  m_Center: {x: 0.111594364, y: -0.20535713, z: 0.64}
+  m_Size: {x: 0.94, y: 1.0334929, z: 0.4}
+  m_Center: {x: 0.2, y: -0.20535713, z: 0.52}
 --- !u!1 &7109545757635075653
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7109545757635075649
 Transform:
@@ -210,10 +210,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2868963370908529522}
     m_Modifications:
+    - target: {fileID: 6425224115979377237, guid: 6a2b2da1f42817145872faf122f4f789,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6425224116916727207, guid: 6a2b2da1f42817145872faf122f4f789,
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425224116916727207, guid: 6a2b2da1f42817145872faf122f4f789,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6425224116916727208, guid: 6a2b2da1f42817145872faf122f4f789,
         type: 3}
@@ -284,6 +294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.11685607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425224117266316825, guid: 6a2b2da1f42817145872faf122f4f789,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6425224117266316831, guid: 6a2b2da1f42817145872faf122f4f789,
         type: 3}

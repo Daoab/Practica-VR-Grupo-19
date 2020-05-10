@@ -6,7 +6,7 @@ using TMPro;
 public class CodeGenerator : MonoBehaviour
 {
     [SerializeField] Transform targetPointParent;
-    public string code = "";
+    [HideInInspector]public string code = "";
 
     private void Awake()
     {
