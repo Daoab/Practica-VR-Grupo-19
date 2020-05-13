@@ -9,7 +9,7 @@ public class SnapCameraRotation : MonoBehaviour
     float xValue = 0;
     bool canRotate = true;
 
-    // Update is called once per frame
+    //Función que rota la vista del jugador en función del joystick derecho
     void Update()
     {
         xValue = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");

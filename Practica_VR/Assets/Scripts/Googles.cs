@@ -22,6 +22,7 @@ public class Googles : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    //Función que comprueba si el jugador se ha puesto las gafas
     void Update()
     {
         if (grabbable.isGrabbed && (transform.position - juanCamera.transform.position).magnitude < distanceToHead)
@@ -31,6 +32,7 @@ public class Googles : MonoBehaviour
         }
     }
 
+    //Función que asegura que las gafas siempre se van a mantener en movimiento
     private void LateUpdate()
     {
         if (rb.velocity.magnitude == 0.0f)

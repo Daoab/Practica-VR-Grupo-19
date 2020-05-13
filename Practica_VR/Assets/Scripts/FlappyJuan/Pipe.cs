@@ -40,7 +40,6 @@ public class Pipe : MonoBehaviour
         maxGapHeight = maxGapPercentage * heightRange;
     }
 
-    // Update is called once per frame
     void Update()
     {
             

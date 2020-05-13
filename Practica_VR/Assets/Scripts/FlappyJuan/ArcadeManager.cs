@@ -21,10 +21,12 @@ public class ArcadeManager : MonoBehaviour
 
     [Header("Pipes")]
     [SerializeField] Pipe[] pipes;
+    //En el juego solo hay una tubería pero el código está preparado por si se quisieran poner más en pantalla para aumentar la dificultad
 
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
-    int highScore = 2;
+    [SerializeField] int maxScore = 10;
+    int highScore = 0;
     public int score = 0;
 
     [Header("Menu UI")]
@@ -34,8 +36,12 @@ public class ArcadeManager : MonoBehaviour
     [SerializeField] RawImage runningBackground;
     [SerializeField] RawImage menuBackground;
 
+    [Header("Doors")]
+    [SerializeField] GameObject[] doors;
+
     [Header("Events")]
     [SerializeField] UnityEvent scoreUp;
+    [SerializeField] UnityEvent onGameCompleted;
 
     //GAME STATE
     bool gameRunning = false;
@@ -48,18 +54,25 @@ public class ArcadeManager : MonoBehaviour
         InitializePipes();
 
         ShowMenu();
+
+        //Se activan las puertas que impiden al jugador acceder a la sala del pc al principio
+        foreach (GameObject door in doors) door.SetActive(true);
     }
 
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.A)) ProcessButtonInput();
+
         if (gameRunning)
         {
-            if (juan.position.y < downLimit.position.y)
+            if (juan.position.y < downLimit.position.y) //Si el jugador sale de la pantalla por debajo pierde
                 GameOver();
+
             UpdateScore();
         }
     }
 
+    //Configuración inicial de Flappy Juan
     public void StartGame()
     {
         Debug.Log("Start Game");
@@ -100,7 +113,7 @@ public class ArcadeManager : MonoBehaviour
         uwuText.enabled = true;
         titleText.enabled = true;
         highScoreText.enabled = true;
-        highScoreText.text = "High Score: " + highScore.ToString();
+        highScoreText.text = "High Score: " + highScore.ToString() + "/" + maxScore.ToString();
         runningBackground.enabled = false;
         menuBackground.enabled = true;
 
@@ -108,10 +121,16 @@ public class ArcadeManager : MonoBehaviour
         juan.gameObject.SetActive(false);
     }
 
+    private void winGame()
+    {
+        //En caso de ganar se desactivan las puertas para que el jugador pueda ir a la sala del pc
+        foreach (GameObject door in doors) door.SetActive(false);
+        onGameCompleted.Invoke();
+        GameOver();
+    }
+
     public void GameOver()
     {
-        Debug.Log("Game Over");
-
         gameRunning = false;
         highScore = score > highScore ? score : highScore;
         ShowMenu();
@@ -121,6 +140,7 @@ public class ArcadeManager : MonoBehaviour
         foreach (Pipe pipe in pipes) pipe.Freeze();
     }
 
+    //Función que comprueba si Juan ha pasado una tubería para actualizar la puntuación
     private void UpdateScore()
     {
         foreach (Pipe pipe in pipes)
@@ -130,11 +150,13 @@ public class ArcadeManager : MonoBehaviour
                 score++;
                 pipe.canAddScore = false;
                 scoreUp.Invoke();
+                if (score == maxScore) winGame();
             }
         }
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString() + "/" + maxScore.ToString();
     }
 
+    //Función que randomiza todas las tuberías
     private void ResetPipes()
     {
         foreach (Pipe pipe in pipes)

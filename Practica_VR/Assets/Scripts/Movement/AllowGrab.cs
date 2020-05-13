@@ -13,9 +13,9 @@ public class AllowGrab : MonoBehaviour
         grabber = GetComponent<OVRGrabber>();
     }
 
+    //Función que impide al jugador coger un objeto si el virtual prob está muy lejos de la mano real
     private void Update()
     {
-        //Debug.Log("Grabber activo: " + grabber.enabled);
         Vector3 direction = transform.position - hand.position;
         if (direction.magnitude <= maxDistance && !grabber.enabled)
             grabber.enabled = true;

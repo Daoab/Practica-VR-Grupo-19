@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] float force = 100f;
     [SerializeField] float torque = 5f;
 
-    // Start is called before the first frame update
+
+    //Esta función genera todas las latas y las gafas en los target points con una dirección y velocidad aleatorias
     void Start()
     {
-        // Va a pillar el transforma del parent también, debe estar en lugar de spawn válido
+        // Va a pillar el transform del parent también, debe estar en lugar de spawn válido
         targetPoints = targetPointParent.GetComponentsInChildren<Transform>();
 
         Rigidbody rb = canPrefab.GetComponent<Rigidbody>();

@@ -18,6 +18,7 @@ public class JuanMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Se limita la altura del jugador para que no sobrepase el límite superior de la pantalla
         if (transform.position.y > upLimit.position.y)
         {
             transform.position = new Vector3(transform.position.x, upLimit.position.y, transform.position.z);

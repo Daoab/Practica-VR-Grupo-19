@@ -14,6 +14,7 @@ public class ScreenButton : MonoBehaviour
         handLayer = LayerMask.NameToLayer("Hands");
     }
 
+    //Invoca un evento en caso de ser pulsado por el jugador
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == handLayer || !onlyHands)

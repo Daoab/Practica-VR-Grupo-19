@@ -5,7 +5,7 @@ using TMPro;
 
 public class CodeGenerator : MonoBehaviour
 {
-    [SerializeField] Transform targetPointParent;
+    [SerializeField] Transform targetPointParent; //Objeto padre de los posibles lugares donde se posicionará el código
     [HideInInspector]public string code = "";
 
     private void Awake()
@@ -14,17 +14,19 @@ public class CodeGenerator : MonoBehaviour
         GenerateCode();
     }
 
+    //Función que posiciona el código en un target point aleatorio
     void RandomizeTransform()
     {
         Transform [] targetPoints = targetPointParent.GetComponentsInChildren<Transform>();
 
-        //No usamos el padre como targetPoint
+        //No usamos el padre como targetPoint (por eso el índice mínimo es 1)
         int randomIndex = Random.Range(1, targetPoints.Length);
 
         transform.position = targetPoints[randomIndex].position;
         transform.rotation = targetPoints[randomIndex].rotation;
     }
 
+    //Función que genera un código aleatorio sin repeticiones de cuatro letras
     void GenerateCode()
     {
         TextMeshProUGUI codeText = GetComponentInChildren<TextMeshProUGUI>();

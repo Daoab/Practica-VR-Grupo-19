@@ -17,7 +17,7 @@ public class Teleportation : MonoBehaviour
         layerMask = LayerMask.NameToLayer("Floor");
     }
 
-    // Update is called once per frame
+    //Función que controla el teletransporte del jugador
     void Update()
     {
         float button = Input.GetAxisRaw("Oculus_CrossPlatform_SecondaryIndexTrigger");
@@ -26,7 +26,7 @@ public class Teleportation : MonoBehaviour
         {
             if (Physics.Raycast(rightHand.position, rightHand.forward, out hit, maxDistance))
             {
-                if (hit.collider.gameObject.layer == layerMask)
+                if (hit.collider.gameObject.layer == layerMask) //Si el raycast choca contra el suelo
                 {
                     teleportDst.gameObject.SetActive(true);
                     teleportDst.transform.position = hit.point;
@@ -41,7 +41,7 @@ public class Teleportation : MonoBehaviour
                 teleportDst.gameObject.SetActive(false);
             }
         }
-        else if (teleportDst.gameObject.activeSelf)
+        else if (teleportDst.gameObject.activeSelf) //En caso de que deba teletransportarse
         {
             teleportDst.gameObject.SetActive(false);
             transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);

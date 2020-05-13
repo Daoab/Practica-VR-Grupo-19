@@ -14,6 +14,7 @@ public class PlayRandomSoundFromPool : MonoBehaviour
         audioSources = audioSourceParent.GetComponentsInChildren<AudioSource>();
     }
 
+    //Función que reproduce un audio aleatorio por varios audio sources
     public void PlayRandomSound(bool overrideSound)
     {
         if (!audioSources[0].isPlaying || overrideSound)
@@ -27,6 +28,7 @@ public class PlayRandomSoundFromPool : MonoBehaviour
         }
     }
 
+    //Función que hace sonar a las gafas al chocar con una pared
     private void OnCollisionEnter(Collision collision)
     {
         PlayRandomSound(false);

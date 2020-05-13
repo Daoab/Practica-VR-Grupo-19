@@ -27,6 +27,7 @@ public class SmoothLocomotion : MonoBehaviour
         yValue = Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstickVertical");
     }
 
+    //Función que en función del input del joystick izquierdo actualiza la posición del jugador de forma suave
     private void FixedUpdate()
     {
         Vector3 forceVector = new Vector3(xValue, 0f, yValue) * forceMultiplier;

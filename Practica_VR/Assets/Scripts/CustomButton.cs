@@ -23,11 +23,11 @@ public class CustomButton : MonoBehaviour
 
     private void LateUpdate()
     {
-        button.AddForce(button.transform.up * force);
+        button.AddForce(button.transform.up * force); //Fuerza del botón para volver a su posición inicial
 
         button.transform.localPosition = new Vector3(buttonStartPosLocal.x, button.transform.localPosition.y, buttonStartPosLocal.z);
 
-        if ((button.transform.position - buttonStartPos).magnitude > failsafeDistance)
+        if ((button.transform.position - buttonStartPos).magnitude > failsafeDistance) //En caso de que el botón se haya desplazado demasiado lejos por algún motivo, se recoloca en su posición original
         {
             button.transform.position = buttonStartPos;
             button.GetComponent<Rigidbody>().velocity = Vector3.zero;

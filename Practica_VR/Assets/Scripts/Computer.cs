@@ -29,11 +29,13 @@ public class Computer : MonoBehaviour
         redLightMat.color = codeDefaultColor;
     }
 
+    //Esta función cambia el color de las luces que tengan como material redLightMat
     public void ChangeLights()
     {
         redLightMat.color = codeSuccessColor;
     }
 
+    //Esta función inserta un nuevo caracter al código y comprueba si es correcto o no en caso de que esté completo
     public void InsertCode(string c)
     {
         char aux = c[0];
